@@ -1,5 +1,5 @@
 <template>
-<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+<nav class="navbar navbar-expand-lg navbar-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">GESTIÓN ACADÉMICA</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,5 +35,20 @@
 </div>
 
 </template>
+
+<style>
+nav.navbar {
+    background-color: DarkSlateGrey;
+}
+
+.slow-animation-show {
+  animation: swal2-show 4s;
+}
+
+.slow-animation-hide {
+  animation: swal2-hide 4s; 
+}
+
+</style>
 
 
