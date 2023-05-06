@@ -31,7 +31,7 @@
               </td>
               <td v-text="est.firstName"></td>
               <td v-text="est.lastName"></td>
-              <td class="centrar" v-text="new Date(est.created_at).toLocaleString()"></td>
+              <td class="centrar" v-text="new Date(est.updated_at).toLocaleString('es-ES')"></td>
               <div class="botones">
                 <router-link :to="{ path: 'viewE/' + est.id }" class="btn btn-info">
                   <i class="fa-sharp fa-solid fa-eye"></i>
@@ -41,20 +41,22 @@
                   <i class="fa-solid fa-user-pen"></i>
                 </router-link>
                 &nbsp;
-                <button v-if="est.photo" class="btn btn-danger" v-on:click="($event) =>
-                    eliminar(
-                      est.id,
-                      est.firstName,
-                      est.photo
-                    )
+                <button v-if="est.photo != ''" class="btn btn-danger" v-on:click="($event) =>
+                  eliminar(
+                    est.id,
+                    est.firstName,
+                    est.photo
+                  )
                   ">
-                  </button>
-                  <button v-else class="btn btn-danger" v-on:click="($event) =>
-                    eliminar(
-                      est.id,
-                      est.firstName,
-                      'https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/7_avatar-48.png'
-                    )
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+
+                <button v-else class="btn btn-danger" v-on:click="($event) =>
+                  eliminar(
+                    est.id,
+                    est.firstName,
+                    'https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/7_avatar-48.png'
+                  )
                   ">
                   <i class="fa-solid fa-trash"></i>
                 </button>
@@ -100,7 +102,7 @@ export default {
         imagen,
         "Eliminar Registro",
         "Realmente desea eliminar a " + nombre + " ?",
-        
+
       );
       this.cargando = false;
     },
@@ -118,7 +120,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 74px;
+  height: 174px;
 }
 
 #contenido tr {
@@ -129,6 +131,11 @@ export default {
   display: block;
   margin: 0 auto;
   text-align: center;
-  
+
+}
+
+a.btn.btn-info {
+  background-color: rgb(0, 153, 255);
+
 }
 </style>

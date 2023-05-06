@@ -37,6 +37,7 @@
 </template>
 
 <style>
+
 nav.navbar {
     background-color: DarkSlateGrey;
 }
@@ -50,5 +51,3 @@ nav.navbar {
 }
 
 </style>
-
-
