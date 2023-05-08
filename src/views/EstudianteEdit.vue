@@ -81,7 +81,7 @@ export default {
   methods: {
 
     getEstudiante(){
-      var $est;
+
       axios.get(this.URI).then(
         res=>{
        

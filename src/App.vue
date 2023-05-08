@@ -21,7 +21,7 @@
             </li>
 
             <li>
-              <router-link to="/viewE/:id" class="dropdown-item" >Detalle</router-link>
+              <router-link to="/" class="dropdown-item" >Listar</router-link>
      
             </li>
           </ul>
