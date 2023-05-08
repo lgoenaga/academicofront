@@ -60,7 +60,7 @@
 
 <script>
 
-import {cargar,  mostrarAlerta, enviarSolicitud} from "../funciones";
+import {cargar,  mostrarAlerta, enviarSolicitud} from "../../funciones";
 import { useRoute } from "vue-router";
 import axios from "axios";
 
@@ -110,7 +110,7 @@ export default {
     detalle() {
       
       event.preventDefault();     
-      window.location.href = "/";
+      window.location.href = "/listarE";
 
       }
       

@@ -73,11 +73,11 @@ export function mostrarAlerta(titulo, icono, foco = "") {
     if (result.dismiss === Swal.DismissReason.timer) {
       console.log("I was closed by the timer");
 
-      window.location.href = "/";
+      window.location.href = "/listarE";
       
     }else{
       if (result.isConfirmed){
-        window.location.href = "/";
+        window.location.href = "/listarE";
       }
     }
   });
@@ -144,10 +144,10 @@ export function enviarSolicitud(metodo, parametros, URI, mensaje) {
         mostrarAlerta(mensaje, "success");
 
         if (Swal.DismissReason.timer===0) {
-          window.location.href = "/";
+          window.location.href = "/listarE";
         }else{
           if (res.isConfirmed){
-            window.location.href = "/";
+            window.location.href = "/listarE";
           }
         }
       } else {

@@ -3,10 +3,10 @@
     <div class="col-md-6 offset-md-3">
       <div class="card">
         <div class="card-header bg-dark text-white text-center">
-          EDITAR ESTUDIANTE
+          REGISTRAR ESTUDIANTE
         </div>
         <div class="card-body">
-          <form v-on:submit="actualizar">
+          <form v-on:submit="guardar">
             <div class="d-grid col-6 mx-auto mb-3">
               <img v-if="this.photo" class="photoimg" height="300" :src="this.photo" id="photoimg"
                 alt="foto-estudiante" />
@@ -38,7 +38,7 @@
             <div class="d-grid col-6 mx-auto mb-3">
               <button class="btn btn-success">
                 <i class="fa-solid fa-floppy-disk"></i>
-                Actualizar
+                Guardar
               </button>
             </div>
           </form>
@@ -50,16 +50,12 @@
 
 <script>
 
-import {cargar,  mostrarAlerta, enviarSolicitud} from "../funciones";
-import { useRoute } from "vue-router";
-import axios from "axios";
-
+import {cargar,  mostrarAlerta, enviarSolicitud} from "../../funciones";
 
 
 export default {
   data() {
     return {
-      id:0,
       firstName: '',
       lastName: '',
       photo: '',
@@ -70,30 +66,12 @@ export default {
   },
 
   mounted() {
-    cargar('Editar')
-    const ruta = useRoute();
-
-    this.id =  ruta.params.id;
-    this.URI += '/'+this.id;
-    this.getEstudiante();
+    cargar('Crear')
   },
 
+
   methods: {
-
-    getEstudiante(){
-
-      axios.get(this.URI).then(
-        res=>{
-       
-          this.firstName = res.data.data.firstName;
-          this.lastName = res.data.data.lastName;
-          this.photo = res.data.data.photo;
-        }
-      );
- 
-    },
-
-    actualizar() {
+    guardar() {
       
       event.preventDefault();     
       var miPhoto = document.getElementById('photoimg');
@@ -108,7 +86,7 @@ export default {
       }else{
           var parametros = {firstName:this.firstName.trim(), lastName:this.lastName.trim(), photo:this.photo.trim()}
      
-        enviarSolicitud('PUT', parametros, this.URI, 'Estudiante actualizado');
+        enviarSolicitud('POST', parametros, this.URI, 'Estudiante registrado')
 
       }
       }

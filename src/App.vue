@@ -21,7 +21,7 @@
             </li>
 
             <li>
-              <router-link to="/" class="dropdown-item" >Listar</router-link>
+              <router-link to="/listarE" class="dropdown-item" >Listar</router-link>
      
             </li>
           </ul>
