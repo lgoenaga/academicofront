@@ -7,6 +7,7 @@ import EstudianteList from "@/views/estudiantes/EstudianteList.vue";
 import RegisterView from "@/views/RegisterView.vue";
 import LoginView from "@/views/LoginView.vue";
 
+
 const routes = [
 	{
 		path: "/",
