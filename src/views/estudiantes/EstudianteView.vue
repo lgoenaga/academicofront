@@ -87,12 +87,12 @@ export default {
 
     this.id =  ruta.params.id;
     this.URI += '/'+this.id;
-    this.getEstudiante();
+    this.getEstudianteView();
   },
 
   methods: {
 
-    getEstudiante(){
+    getEstudianteView(){
 
       axios.get(this.URI).then(
         res=>{

@@ -82,13 +82,13 @@ export default {
   },
 
   mounted() {
+       cargar("Inicio");
     this.getEstudiantes();
-    cargar("Inicio");
+ 
   },
 
   methods: {
     getEstudiantes() {
-      this.estudiantes = true;
       axios.get("http://localhost:8000/api/estudiantes").then((res) => {
         this.estudiantes = res.data;
         this.cargando = false;
