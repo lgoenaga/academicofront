@@ -20,9 +20,11 @@
                 <h3>Cargando.....</h3>
               </td>
             </tr>
-            <tr v-else v-for="(est, i) in this.estudiantes" :key="est.id">
+            <tr v-else v-for="(est, i) in this.estudiantes" :key="est.id"
+              v-show="(pag - 1) * NUM_RESULTS <= i && pag * NUM_RESULTS > i">
               <td class="centrar" v-text="i + 1"></td>
               <td class="centrar" v-text="est.id"></td>
+              
               <td>
                 <img v-if="est.photo" class="img-thumbnail" style="width: 150px !important" :src="est.photo"
                   alt="foto-estudiante" />
@@ -32,6 +34,7 @@
               <td v-text="est.firstName"></td>
               <td v-text="est.lastName"></td>
               <td class="centrar" v-text="new Date(est.updated_at).toLocaleString('es-ES')"></td>
+
               <div class="botones">
                 <router-link :to="{ path: 'viewE/' + est.id }" class="btn btn-info">
                   <i class="fa-sharp fa-solid fa-eye"></i>
@@ -65,33 +68,70 @@
           </tbody>
         </table>
       </div>
+      <section class="page">
+        <nav aria-label="Page navigation" class="text-center">
+          <ul class="pagination text-center">
+            <li>
+              <a href="#" aria-label="Previous" v-show="pag != 1" @click.prevent="pag -= 1">
+                <button class="btn btn-success" aria-hidden="true">Anterior</button>
+              </a>
+            </li>
+            <li>
+              <a aria-label="Previous" v-show="pag != 0" @click.prevent="pag -= 1">
+                <span aria-hidden="true">pagina {{pag}} de {{ this.NoPag }} </span>
+              </a>
+            </li>
+            <li>
+              <a href="#" aria-label="Next" v-show="pag * NUM_RESULTS / totalItems < 1" @click.prevent="pag += 1">
+                <button class="btn btn-success" aria-hidden="true">Siguiente</button>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </section>
+
+
     </div>
   </div>
 </template>
 
+
 <script>
+
 import axios from "axios";
 import { confirmar, cargar } from "../../funciones";
 
 export default {
+
   data() {
+
     return {
       estudiantes: null,
       cargando: false,
+      totalItems: 1,
+      NUM_RESULTS: 4,
+      NoPag:1,
+      pag: 1, 
     };
   },
+  computed: {
 
-  mounted() {
-       cargar("Inicio");
-    this.getEstudiantes();
- 
   },
+  mounted() {
+    cargar("Inicio");
+    this.getEstudiantes();
+  },
+
 
   methods: {
     getEstudiantes() {
       axios.get("http://localhost:8000/api/estudiantes").then((res) => {
         this.estudiantes = res.data;
         this.cargando = false;
+        const newArray = this.estudiantes.map(a => ({ ...a }));
+        this.totalItems = newArray.length;
+        this.NoPag = Math.ceil(this.totalItems / this.NUM_RESULTS);
+        return this.Nopag;
       });
     },
 
@@ -110,6 +150,12 @@ export default {
 };
 </script>
 <style>
+.pagination {
+  display: flex;
+  justify-content: space-between;
+
+}
+
 .titulos-tabla,
 .centrar {
   margin: 0 auto;
