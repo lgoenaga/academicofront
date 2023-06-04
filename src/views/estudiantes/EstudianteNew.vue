@@ -87,7 +87,7 @@ export default {
           var parametros = {firstName:this.firstName.trim(), lastName:this.lastName.trim(), photo:this.photo.trim()}
      
         enviarSolicitud('POST', parametros, this.URI, 'Estudiante registrado')
-
+          this.$router.push({ name: 'listarE' });
       }
       }
       

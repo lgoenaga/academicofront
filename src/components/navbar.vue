@@ -2,7 +2,7 @@
 	<div id="navbar">
 		<nav class="navbar navbar-expand-lg navbar-dark">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="/login">
+				<a class="navbar-brand" href="/home">
 					GESTIÓN ACADÉMICA
 				</a>
 				<button
@@ -18,11 +18,6 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-						<li class="nav-item">
-							<router-link to="/home" class="nav-link active">
-								Inicio
-							</router-link>
-						</li>
 						<li class="nav-item dropdown">
 							<a
 								class="nav-link dropdown-toggle"
@@ -73,6 +68,11 @@
 							</li>
 					</ul>
 				</div>
+			</div>
+			<div class="logout">
+								<a class="navbar-brand" href="/login">
+						LOGOUT
+					</a>
 			</div>
 		</nav>
 	</div>

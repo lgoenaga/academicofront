@@ -109,7 +109,7 @@ export default {
           var parametros = {firstName:this.firstName.trim(), lastName:this.lastName.trim(), photo:this.photo.trim()}
      
         enviarSolicitud('PUT', parametros, this.URI, 'Estudiante actualizado');
-
+          this.$router.push({ name: 'listarE' });
       }
       }
       

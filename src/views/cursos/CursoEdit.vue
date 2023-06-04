@@ -80,7 +80,7 @@ export default {
           var parametros = {name:this.name.trim()}
      
         enviarSolicitud('PUT', parametros, this.URI, 'Curso actualizado');
-
+        this.$router.push({ name: 'listarC' });
       }
       
     },

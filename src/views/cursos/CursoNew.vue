@@ -58,7 +58,7 @@ export default {
           var parametros = {name:this.name.trim()}
      
         enviarSolicitud('POST', parametros, this.URI, 'Curso registrado')
-
+        this.$router.push({ name: 'listarC' });
       }
       
       
