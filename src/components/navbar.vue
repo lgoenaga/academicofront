@@ -47,6 +47,30 @@
 								</li>
 							</ul>
 						</li>
+												<li class="nav-item dropdown">
+								<a
+									class="nav-link dropdown-toggle"
+									id="navbarDropdown"
+									role="button"
+									data-bs-toggle="dropdown"
+									aria-expanded="false"
+								>
+									Curso
+								</a>
+								<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<li>
+										<router-link to="/createC" class="dropdown-item">
+											Crear
+										</router-link>
+									</li>
+
+									<li>
+										<router-link to="/listarC" class="dropdown-item">
+											Listar
+										</router-link>
+									</li>
+								</ul>
+							</li>
 					</ul>
 				</div>
 			</div>

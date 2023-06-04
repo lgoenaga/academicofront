@@ -6,7 +6,9 @@ import EstudianteView from "../views/estudiantes/EstudianteView.vue";
 import EstudianteList from "@/views/estudiantes/EstudianteList.vue";
 import RegisterView from "@/views/RegisterView.vue";
 import LoginView from "@/views/LoginView.vue";
-
+import CursoList from "@/views/cursos/CursoList.vue";
+import CursoNew from "../views/cursos/CursoNew.vue";
+import CursoEdit from "../views/cursos/CursoEdit.vue";
 
 const routes = [
 	{
@@ -51,6 +53,21 @@ const routes = [
 		path: "/viewE/:id",
 		name: "viewE",
 		component: EstudianteView,
+	},
+	{
+		path: "/listarC",
+		name: "listarC",
+		component: CursoList,
+	},
+	{
+		path: "/createC",
+		name: "createC",
+		component: CursoNew,
+	},
+	{
+		path: "/editC/:id",
+		name: "editC",
+		component: CursoEdit,
 	},
 ];
 
