@@ -9,6 +9,7 @@ import LoginView from "@/views/LoginView.vue";
 import CursoList from "@/views/cursos/CursoList.vue";
 import CursoNew from "../views/cursos/CursoNew.vue";
 import CursoEdit from "../views/cursos/CursoEdit.vue";
+import CursoEstudianteList from "@/views/cursosestudiantes/CursoEstudianteList.vue";
 
 const routes = [
 	{
@@ -68,6 +69,11 @@ const routes = [
 		path: "/editC/:id",
 		name: "editC",
 		component: CursoEdit,
+	},
+	{
+		path: "/listarCE",
+		name: "listarCE",
+		component: CursoEstudianteList,
 	},
 ];
 

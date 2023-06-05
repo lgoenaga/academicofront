@@ -151,7 +151,12 @@ export function enviarSolicitud(metodo, parametros, URI, mensaje) {
           }
         }
       } else {
-        mostrarAlerta("Error de servidor", "error");
+        if (estado==500){
+          mostrarAlerta("Error de servidor", "error");
+        }else{
+          mostrarAlerta("No se pude realizar la acción", "warning");
+        }
+        
       }
     })
     .catch(function (error) {

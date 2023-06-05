@@ -37,6 +37,7 @@
                   eliminar(
                     course.id,
                     course.name,
+                    this.image,
                   )
                   ">
                   <i class="fa-solid fa-trash"></i>
@@ -89,7 +90,8 @@ export default {
       totalItems: 1,
       NUM_RESULTS: 8,
       NoPag:1,
-      pag: 1, 
+      pag: 1,
+      image: "fa-solid fa-trash"  
     };
   },
   computed: {
@@ -113,10 +115,11 @@ export default {
       });
     },
 
-    eliminar(id, nombre) {
+    eliminar(id, nombre, image) {
       confirmar(
         "http://localhost:8000/api/cursos",
         id,
+        image,
         "Eliminar Registro",
         "Realmente desea eliminar a " + nombre + " ?",
 
